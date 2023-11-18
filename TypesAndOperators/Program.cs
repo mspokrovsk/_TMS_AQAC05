@@ -4,6 +4,7 @@
   double number2;
   string operation;
   double result;
+
   Console.Write("Введите первое число: ");
   number1 = Convert.ToDouble(Console.ReadLine());
   Console.Write("Введите одну из допустимых операций(+, -, *, /): ");
@@ -16,19 +17,16 @@
       case "+":
           {
               result = number1 + number2;
-              
               break;
           }
       case "-":
           {
               result = number1 - number2;
-              
               break;
           }
       case "*":
           {
               result = number1 * number2;
-              
               break;
           }
       case "/":
@@ -40,7 +38,6 @@
               else
               {
                   result = number1 / number2;
-                  
               }
               return;
           }
@@ -52,8 +49,10 @@
 Console.WriteLine("Результат равен: " + result);
 
   }*/
+
 //Задание 2
 /*int number;
+  
 Console.WriteLine("Введите число от -50 до 50:");
 number = Convert.ToInt32(Console.ReadLine());
 
@@ -77,10 +76,12 @@ else
 {
     Console.WriteLine("Число не входит ни в один из промежутков");
 }*/
+
 //Задание 3
 /*string[] word = {"отличная", "ужасная", "приятная", "переменчивая", "неустойчивая", "чудесная", "суровая", "непредсказуемая", "отвратительная", "мерзкая" };
 string word3;
 string translation = "";
+
 Console.WriteLine("Я русско-английский переводчик и я знаю всего 10 слов о погоде:");
 foreach (string word2 in word) //пробую практиковать параллельно с лекцией
 {
@@ -127,4 +128,27 @@ switch (word3)
 }
 
 Console.WriteLine("Перевод: " + translation);*/
-//Задание 4
+
+//Задание 4.1
+int number;
+
+Console.Write("Введите число: ");
+number = Convert.ToInt32(Console.ReadLine());
+
+if (number % 2 == 0)
+    {
+    Console.WriteLine("Число четное");
+    }
+else
+{
+    Console.WriteLine("Число нечетное");
+}
+
+//Задание 4.2
+int number2;
+
+Console.Write("Введите число: ");
+number2 = Convert.ToInt32(Console.ReadLine());
+
+string parity = (number2 % 2 == 0) ? "четное" : "нечетное";
+Console.WriteLine("Число " + parity);
