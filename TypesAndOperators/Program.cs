@@ -51,7 +51,7 @@ Console.WriteLine("Результат равен: " + result);
   }*/
 
 //Задание 2
-/*int number;
+int number;
   
 Console.WriteLine("Введите число от -50 до 50:");
 number = Convert.ToInt32(Console.ReadLine());
@@ -72,10 +72,14 @@ else if (number >= 11 && number <= 40)
     {
     Console.WriteLine("Число входит в промежуток [11, 40]");
     }
+else if (number >= -50 && number <= 50)
+{
+    Console.WriteLine("Число входит в промежуток [-50, 50]");
+}
 else
 {
     Console.WriteLine("Число не входит ни в один из промежутков");
-}*/
+}
 
 //Задание 3
 /*string[] word = {"отличная", "ужасная", "приятная", "переменчивая", "неустойчивая", "чудесная", "суровая", "непредсказуемая", "отвратительная", "мерзкая" };
@@ -130,7 +134,7 @@ switch (word3)
 Console.WriteLine("Перевод: " + translation);*/
 
 //Задание 4.1
-int number;
+/*int number;
 
 Console.Write("Введите число: ");
 number = Convert.ToInt32(Console.ReadLine());
@@ -142,13 +146,13 @@ if (number % 2 == 0)
 else
 {
     Console.WriteLine("Число нечетное");
-}
+}*/
 
 //Задание 4.2
-int number2;
+/*int number2;
 
 Console.Write("Введите число: ");
 number2 = Convert.ToInt32(Console.ReadLine());
 
 string parity = (number2 % 2 == 0) ? "четное" : "нечетное";
-Console.WriteLine("Число " + parity);
+Console.WriteLine("Число " + parity);*/
