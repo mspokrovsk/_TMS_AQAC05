@@ -9,7 +9,7 @@ namespace StringApp // Note: actual namespace depends on the project name.
         {
             static void Main(string[] args)
             {
-                Console.WriteLine("Hello, World!");
+            /*    Console.WriteLine("Hello, World!");
 
                 // Declare without initializing.
                 string message1;
@@ -103,11 +103,11 @@ namespace StringApp // Note: actual namespace depends on the project name.
                     Console.WriteLine($"Compare: {comp_str1.CompareTo(item)}");
                 }
 
-                /*
+                
                  * 0 - идентичны
                  * < 0 - строка 1 перед строкой 2 по алфавиту
                  * > 0 - строка 1 после строки 2 по алфавиту
-                 */
+                 
 
 
                 // -=================== Find subString (Поиск подстроки) ===================
@@ -338,11 +338,11 @@ namespace StringApp // Note: actual namespace depends on the project name.
                 sbAppendLine.AppendLine("How are you?");
 
                 Console.WriteLine($"AppendLine : {sbAppendLine}");
-                /* Вывод:
+                 Вывод:
                    Hello,
                    world!
                    How are you?
-                */
+                
 
                 // -=================== AppendFormat
                 // Пример 1: Простой пример форматирования
@@ -465,6 +465,54 @@ namespace StringApp // Note: actual namespace depends on the project name.
 
             Console.WriteLine($"Исходная строка: {input2}");
             Console.WriteLine($"Строка после замены: {result2}");
+*/
+            //Домашнее задание
+            //Задание 1
+            /*string inputString = "testpokrovskaya2023";
+
+            string replacedString = inputString.Replace("test", "testing");
+
+            string resultString = "";
+            foreach (char c in replacedString)
+            {
+                if (!char.IsDigit(c))
+                {
+                    resultString += c;
+                    //Console.WriteLine(resultString);
+                }
+            }
+
+            Console.WriteLine(resultString);
+            Console.ReadKey();*/
+            //Задание 2
+            Console.WriteLine("\"Welcome\" " + "\"to\" " + "\"the\" " + "\"TMS\" " + "\"lessons\"");
+
+            Console.ReadKey();
+            //Задание 3
+            /* string inputString = "teamwithsomeofexcersicesabcwanttomakeitbetter.";
+
+             int index = inputString.IndexOf("abc");
+
+             string before = inputString.Substring(0, index);
+             string after = inputString.Substring(index + 3);
+
+             Console.WriteLine($"Первая переменная: {before}");
+             Console.WriteLine($"Вторая переменная: {after}");
+
+             Console.ReadKey();*/
+            //Задание 4
+            string inputString = "Плохой день.";
+
+            string modifiedString = inputString.Substring(6);
+            Console.WriteLine(modifiedString);
+
+            modifiedString = modifiedString.Insert(0, "Хороший").Replace(".", "!!!!!!!!!.");
+            Console.WriteLine(modifiedString);
+
+            modifiedString = modifiedString.Remove(modifiedString.LastIndexOf('!'), 1).Insert(modifiedString.Length - 2, "?");
+
+            Console.WriteLine(modifiedString);
+
 
 
         }
