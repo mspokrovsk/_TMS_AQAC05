@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-//int[] array = { 1, 9, 3, 6, 5 };
+/*//int[] array = { 1, 9, 3, 6, 5 };
 
 /*
 int[] array1;
@@ -214,7 +214,7 @@ for (int i = 0; i <= numbers.GetUpperBound(0); i++)
 
 
 //================Задача
-int[] nums = { -4, 8, 10, 2, 12, 0, 5, 6 };
+/*int[] nums = { -4, 8, 10, 2, 12, 0, 5, 6 };
 
 foreach (int item in nums)
 {
@@ -225,7 +225,7 @@ Console.WriteLine();
 nums[0] <-> nums[nums.Length - 1 - 0]
 nums[1] <-> nums[nums.Length - 1 - 1]
 nums[2] <-> nums[nums.Length - 1 - 2]
-*/
+
 
 int n = nums.Length; // Длинна массива
 int k = n / 2;
@@ -250,4 +250,112 @@ foreach (int item in nums)
 {
     Console.Write($"{item} \t");
 }
-//LP
+*/
+//Домашнее задание
+//Задание 1
+/*int[] numbers = new int[] { 1, 2, 3, 4, 5 };
+
+Console.Write("Введите число для поиска: ");
+int searchNumber =  Convert.ToInt32(Console.ReadLine());
+
+bool isFound = false;
+foreach (int number in numbers)
+{
+    if (number == searchNumber)
+    {
+        isFound = true;
+        break;
+    }
+}
+
+if (isFound)
+{
+    Console.WriteLine($"Число {searchNumber} найдено в массиве.");
+}
+else
+{
+    Console.WriteLine($"Число {searchNumber} не найдено в массиве.");
+}
+
+Console.ReadKey();*/
+//Задание 2
+/*int[] numbers = new int[] { 1, 2, 3, 4, 5 };
+
+Console.Write("Введите число для удаления: ");
+int numberToRemove = Convert.ToInt32(Console.ReadLine());
+
+int count = 0;
+for (int i = 0; i < numbers.Length; i++)
+{
+    if (numbers[i] == numberToRemove)
+    {
+        count++;
+     }
+}
+
+
+int[] modifiedNumbers = new int[numbers.Length - count];
+int index = 0;
+for (int i = 0; i < numbers.Length; i++)
+{
+    if (numbers[i] != numberToRemove)
+    {
+        modifiedNumbers[index] = numbers[i];
+        index++;
+    }
+}
+
+if (count > 0)
+{
+    Console.WriteLine("Массив без указанного числа:");
+    foreach (int number in modifiedNumbers)
+    {
+        Console.Write(number + " ");
+    }
+}
+else
+{
+    Console.WriteLine($"Число {numberToRemove} не найдено в массиве.");
+}
+
+Console.ReadKey();*/
+//Задание 3
+/*Console.Write("Введите размер массива: ");
+int size = Convert.ToInt32(Console.ReadLine());
+
+int[] numbers = new int[size];
+Random rand = new Random();
+
+for (int i = 0; i < size; i++)
+{
+    numbers[i] = rand.Next(1, 100); // Генерация случайного числа от 1 до 100
+}
+Console.WriteLine($"Ваш массив {string.Join(" ", numbers)}");
+Console.WriteLine($"Максимальное значение: {numbers.Max()}");
+Console.WriteLine($"Минимальное значение: {numbers.Min()}");
+Console.WriteLine($"Среднее значение: {numbers.Average()}");
+
+Console.ReadKey();*/
+//Задание 4
+int[] array1 = new int[] { 1, 2, 3, 4, 5 };
+int[] array2 = new int[] { 6, 7, 8, 9, 11 };
+double average1 = array1.Average();
+double average2 = array2.Average();
+
+Console.WriteLine($"Первый массив {string.Join(" ", array1)}");
+Console.WriteLine($"Второй массив {string.Join(" ", array2)}");
+
+if (average1 > average2)
+{
+    Console.WriteLine($"Среднее арифметическое первого массива ({average1}) больше среднего арифметического второго массива ({average2}).");
+}
+else if (average1 < average2)
+{
+    Console.WriteLine($"Среднее арифметическое второго массива ({average2}) больше среднего арифметического первого массива ({average1}).");
+}
+else
+{
+    Console.WriteLine($"Средние арифметические значений двух массивов равны ({average1}).");
+}
+
+Console.ReadKey();
