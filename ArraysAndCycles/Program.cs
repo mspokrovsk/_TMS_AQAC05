@@ -254,11 +254,13 @@ foreach (int item in nums)
 //Домашнее задание
 //Задание 1
 /*int[] numbers = new int[] { 1, 2, 3, 4, 5 };
-
+Console.Write("Массив содержит числа: ");
+Console.WriteLine(string.Join(" ", numbers));
 Console.Write("Введите число для поиска: ");
 int searchNumber =  Convert.ToInt32(Console.ReadLine());
 
 bool isFound = false;
+
 foreach (int number in numbers)
 {
     if (number == searchNumber)
@@ -279,8 +281,9 @@ else
 
 Console.ReadKey();*/
 //Задание 2
-/*int[] numbers = new int[] { 1, 2, 3, 4, 5 };
-
+int[] numbers = new int[] { 1, 2, 3, 4, 5 };
+Console.Write("Массив содержит числа: ");
+Console.WriteLine(string.Join(" ", numbers));
 Console.Write("Введите число для удаления: ");
 int numberToRemove = Convert.ToInt32(Console.ReadLine());
 
@@ -292,8 +295,6 @@ for (int i = 0; i < numbers.Length; i++)
         count++;
      }
 }
-
-
 int[] modifiedNumbers = new int[numbers.Length - count];
 int index = 0;
 for (int i = 0; i < numbers.Length; i++)
@@ -304,7 +305,6 @@ for (int i = 0; i < numbers.Length; i++)
         index++;
     }
 }
-
 if (count > 0)
 {
     Console.WriteLine("Массив без указанного числа:");
@@ -317,8 +317,7 @@ else
 {
     Console.WriteLine($"Число {numberToRemove} не найдено в массиве.");
 }
-
-Console.ReadKey();*/
+Console.ReadKey();
 //Задание 3
 /*Console.Write("Введите размер массива: ");
 int size = Convert.ToInt32(Console.ReadLine());
@@ -337,7 +336,7 @@ Console.WriteLine($"Среднее значение: {numbers.Average()}");
 
 Console.ReadKey();*/
 //Задание 4
-int[] array1 = new int[] { 1, 2, 3, 4, 5 };
+/*int[] array1 = new int[] { 1, 2, 3, 4, 5 };
 int[] array2 = new int[] { 6, 7, 8, 9, 11 };
 double average1 = array1.Average();
 double average2 = array2.Average();
@@ -358,4 +357,4 @@ else
     Console.WriteLine($"Средние арифметические значений двух массивов равны ({average1}).");
 }
 
-Console.ReadKey();
+Console.ReadKey();*/
