@@ -487,6 +487,15 @@ namespace StringApp // Note: actual namespace depends on the project name.
             //Задание 2
             Console.WriteLine("\"Welcome\" " + "\"to\" " + "\"the\" " + "\"TMS\" " + "\"lessons\"");
 
+            
+            string[] words = { "Welcome", "to", "the", "TMS", "lessons" };
+
+            string joinedWords = string.Join(" ", words);
+            string concatenatedWords = string.Concat("\"", string.Join("\" \"", words), "\""); 
+
+            Console.WriteLine(concatenatedWords); 
+            
+
             Console.ReadKey();
             //Задание 3
             /* string inputString = "teamwithsomeofexcersicesabcwanttomakeitbetter.";
