@@ -278,6 +278,32 @@ namespace Classes
             Console.WriteLine($"Наелся? - {cat.Feed(2)}");
             Console.WriteLine($"Наелся? - {cat.Feed(4)}");
             Console.WriteLine("Наелся? - {0}", cat.Feed(3) ? "Да" : "Нет");
-        }
+            Console.WriteLine();
+
+            //Домашнее задание
+            //Задание 1
+            // Создаем экземпляры класса Phone, используя разные конструкторы
+            Phone phone1 = new Phone();
+            Phone phone2 = new Phone(123456789, "Samsung");
+            Phone phone3 = new Phone(0.2, 987654321, "iPhone");
+
+            // Выводим значения переменных каждого объекта на консоль
+            Console.WriteLine($"Телефон 1: номер {phone1.number}, модель {phone1.model}, вес {phone1.weight}");
+            Console.WriteLine($"Телефон 2: номер {phone2.number}, модель {phone2.model}, вес {phone2.weight}");
+            Console.WriteLine($"Телефон 3: номер {phone3.number}, модель {phone3.model}, вес {phone3.weight}");
+            Console.WriteLine();
+            // Вызываем метод receiveCall и getNumber для каждого объекта
+            phone1.receiveCall("Мама");
+            Console.WriteLine($"номер телефона: {phone1.getNumber()}");
+            phone2.receiveCall("Друг");
+            Console.WriteLine($"номер телефона: {phone2.getNumber()}");
+            phone3.receiveCall("Коллега");
+            Console.WriteLine($"номер телефона: {phone3.getNumber()}");
+            Console.WriteLine();
+            // Вызываем метод sendMessage с двумя и пятью номерами телефонов
+            phone1.sendMessage(123456789, 987654321);
+            phone2.sendMessage(111111111, 222222222, 333333333, 444444444, 555555555);
+        
+    }
     }
 }
