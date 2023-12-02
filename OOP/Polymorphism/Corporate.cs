@@ -1,3 +1,5 @@
+using Polymorphism;
+
 public class Corporate : Client
 {
     public string INN;
@@ -8,20 +10,8 @@ public class Corporate : Client
         Console.WriteLine("Corporate Base HashCode: " + base.GetHashCode());
     }
 
-    public override void SendNotification()
+    public override sealed void SendNotification()
     {
         Console.WriteLine("Дорогие сотрудники компании....");
-    }
-
-    public override sealed string Address
-    {
-        get
-        {
-            return base.Address + " " + INN;
-        }
-        set
-        {
-            base.Address = "Corpotare Address: " + value;
-        }
     }
 }

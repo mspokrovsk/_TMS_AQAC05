@@ -1,3 +1,5 @@
+namespace Abstraction;
+
 public class Corporate : Client
 {
     public string INN;
@@ -5,6 +7,5 @@ public class Corporate : Client
 
     public Corporate(int id) : base(id)
     {
-        Console.WriteLine("Corporate Base HashCode: " + base.GetHashCode());
     }
 }

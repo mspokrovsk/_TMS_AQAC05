@@ -3,7 +3,7 @@
 using Encapsulation;
 
 State state = new State();
- 
+
 // обратиться к переменной defaultVar у нас не получится,
 // так как она имеет модификатор private и класс StateConsumer ее не видит
 //Console.WriteLine(state.defaultVar); //Ошибка, получить доступ нельзя
@@ -43,3 +43,7 @@ state.PrintInternal();    // норм
 state.PrintProtectedInternal();  // норм
  
 state.PrintPublic();      // норм
+
+
+ChildState childState = new ChildState();
+childState.PrintProtectedInternal();
