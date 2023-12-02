@@ -303,7 +303,33 @@ namespace Classes
             // Вызываем метод sendMessage с двумя и пятью номерами телефонов
             phone1.sendMessage(123456789, 987654321);
             phone2.sendMessage(111111111, 222222222, 333333333, 444444444, 555555555);
-        
-    }
+            Console.WriteLine();
+            //Задание 2
+            CreditCard card1 = new CreditCard { cardNumber = "1111", currentBalance = 100 };
+            CreditCard card2 = new CreditCard { cardNumber = "2222", currentBalance = 200 };
+            CreditCard card3 = new CreditCard { cardNumber = "3333", currentBalance = 300 };
+            //Выводим на консоль текущую сумму на счете
+            card1.PrintCardInfo();
+            card2.PrintCardInfo();
+            card3.PrintCardInfo();
+            //Пополняем счета первой и второй карты
+            Console.WriteLine("Введите сумму для пополнения первого счета:");
+            decimal deposit1 = decimal.Parse(Console.ReadLine());
+            card1.Deposit(deposit1);
+
+            Console.WriteLine("Введите сумму для пополнения второго счета:");
+            decimal deposit2 = decimal.Parse(Console.ReadLine());
+            card2.Deposit(deposit2);
+            //Снимаем сумму с третьей карты
+            Console.WriteLine("Введите сумму для снятия с третьего счета:");
+            decimal withdraw3 = decimal.Parse(Console.ReadLine());
+            card3.Withdraw(withdraw3);
+            //Выводим на консоль текущее состояние всех карт
+            card1.PrintCardInfo();
+            card2.PrintCardInfo();
+            card3.PrintCardInfo();
+
+
+        }
     }
 }
