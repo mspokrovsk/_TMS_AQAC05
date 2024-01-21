@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections", "Collections\Collections.csproj", "{8E919FC1-57AD-4566-A70D-33E138201294}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQ", "LINQ\LINQ.csproj", "{5D8915D2-5A29-42C1-ADBF-D53D9A9AB253}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E919FC1-57AD-4566-A70D-33E138201294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E919FC1-57AD-4566-A70D-33E138201294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E919FC1-57AD-4566-A70D-33E138201294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E919FC1-57AD-4566-A70D-33E138201294}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D8915D2-5A29-42C1-ADBF-D53D9A9AB253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D8915D2-5A29-42C1-ADBF-D53D9A9AB253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D8915D2-5A29-42C1-ADBF-D53D9A9AB253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D8915D2-5A29-42C1-ADBF-D53D9A9AB253}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
