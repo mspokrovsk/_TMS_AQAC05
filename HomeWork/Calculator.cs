@@ -2,23 +2,10 @@
 {
         public class Calculator
     {
-        public int Div(int a, int b)
-        {
-            if (b == 0)
-            {
-                throw new DivideByZeroException("Деление на ноль невозможно");
-            }
-            return a / b;
-        }
+        public int Div(int a, int b) => a / b;
 
-        public double Div(double a, double b)
-        {
-            if (b == 0)
-            {
-                throw new DivideByZeroException("Деление на ноль невозможно");
-            }
-            return a / b;
-        }
+
+        public double Div(double a, double b) => a / b;
     }
 
     public class DivideByZeroException : Exception
