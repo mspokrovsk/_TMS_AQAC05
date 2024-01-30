@@ -20,7 +20,7 @@ namespace HomeWork
             Assert.Throws<DivideByZeroException>(() => _calculator.Div(10, 0), "Division by zero is not allowed");
         }
 
-        [Test, Ignore("Пропуск теста")]
+        [Test, Ignore("Skipping a test")]
         [Author("mspokrovsk")]
         public void TestDivideByZer()
         {
