@@ -12,22 +12,22 @@ namespace HomeWork
             _calculator = new Calculator();
         }
 
-        [Test(Description = "Проверка деления на ноль"), Order(3)]
+        [Test(Description = "Checking division by zero"), Order(3)]
         [Author("mspokrovsk")]
         [Repeat(5)]
         public void TestDivideByZero()
         {
-            Assert.Throws<DivideByZeroException>(() => _calculator.Div(10, 0), "Деление на ноль недопустимо");
+            Assert.Throws<DivideByZeroException>(() => _calculator.Div(10, 0), "Division by zero is not allowed");
         }
 
         [Test, Ignore("Пропуск теста")]
         [Author("mspokrovsk")]
         public void TestDivideByZer()
         {
-            Assert.Throws<DivideByZeroException>(() => _calculator.Div(10, 0), "Деление на ноль недопустимо");
+            Assert.Throws<DivideByZeroException>(() => _calculator.Div(10, 0), "Division by zero is not allowed");
         }
 
-        [Test(Description = "Проверка целочисленного деления"), Order(1)]
+        [Test(Description = "Checking integer division"), Order(1)]
         [Author("mspokrovsk")]
         [Retry(3)]
         [TestCase(10, 2, 5)]
@@ -37,7 +37,7 @@ namespace HomeWork
             Assert.AreEqual(expectedResult, _calculator.Div(a, b));
         }
 
-        [Test(Description = "Проверка деления числа с плавающей точкой"), Order(2)]
+        [Test(Description = "Checking division of a floating point number"), Order(2)]
         [Author("mspokrovsk")]
         [TestCase(10.5, 2.5, 4.2)]
         [TestCase(10.5, 3.0, 3.5)]
@@ -59,7 +59,7 @@ namespace HomeWork
             Assert.AreEqual(expectedResult, _calculator.Div(a, b));
         }
 
-        [Test(Description = "Проверка с внешним хранилищем"), Order(5)]
+        [Test(Description = "Checking with external storage"), Order(5)]
         [Author("mspokrovsk")]
         [TestCaseSource(typeof(TestData), nameof(TestData.DivCases))]
         public void DivideTest(int a, int b, int c)
