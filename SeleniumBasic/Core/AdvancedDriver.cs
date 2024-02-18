@@ -7,20 +7,20 @@ namespace SeleniumBasic.Core;
 
 public class AdvancedDriver
 {
-    private string basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+    private string basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);//путь к драйверу браузера
     
     public IWebDriver GetChromeDriver()
     {
-        var chromeOptions = new ChromeOptions();
-        chromeOptions.AddArguments("--incognito");
-        chromeOptions.AddArguments("--disable-gpu");
-        chromeOptions.AddArguments("--disable-extensions");
-        //chromeOptions.AddArguments("--headless");
+        var chromeOptions = new ChromeOptions();//экземпляр класса 
+        chromeOptions.AddArguments("--incognito");//запуск в приватном режиме
+        chromeOptions.AddArguments("--disable-gpu");//отключаем графический процессор
+        chromeOptions.AddArguments("--disable-extensions");//отключение дополнений
+        //chromeOptions.AddArguments("--headless");//режим без ui части для ускорения проверки
         
-        chromeOptions.SetLoggingPreference(LogType.Browser, LogLevel.All);//логирование
-        chromeOptions.SetLoggingPreference(LogType.Driver, LogLevel.All);
+        chromeOptions.SetLoggingPreference(LogType.Browser, LogLevel.All);//логирование браузера
+        chromeOptions.SetLoggingPreference(LogType.Driver, LogLevel.All);//логирование драйвера
 
-        return new ChromeDriver(basePath + @"/Resources/", chromeOptions);
+        return new ChromeDriver(basePath + @"/Resources/", chromeOptions);//запуск браузера
     }
 
     public IWebDriver GetFirefoxDriver()

@@ -19,6 +19,7 @@ public class SimpleDriver //класс, отвечающий за инстанс экземпл€ра браузера
             //return new ChromeDriver(path + @"\Resources\");
 
             return new ChromeDriver(basePath + @"\Resources\");
+            //return new ChromeDriver;
         }
     } 
 }

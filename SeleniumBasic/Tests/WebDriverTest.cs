@@ -10,8 +10,8 @@ public class WebDriverTest
     public void SimpleDriverTest()
     {
         IWebDriver webDriver = new SimpleDriver().Driver;
-        webDriver.Manage().Window.Maximize();
-        webDriver.Navigate().GoToUrl("http://onliner.by");
+        webDriver.Manage().Window.Maximize();//управление размерами окна браузера
+        webDriver.Navigate().GoToUrl("http://onliner.by");//переход по ссылке
         webDriver.Quit();//убить процесс
     }
 

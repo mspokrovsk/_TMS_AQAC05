@@ -5,11 +5,11 @@ namespace SeleniumBasic.Core
 {
     public class Browser
     {
-        public IWebDriver? Driver { get; }
+        public IWebDriver? Driver { get; }//свойство
 
-        public Browser()
+        public Browser()//конструктор
         {
-            Driver = Configurator.BrowserType?.ToLower() switch
+            Driver = Configurator.BrowserType?.ToLower() switch//связь с файлом configurator из папки utilites
             {
                 "chrome" => new DriverFactory().GetChromeDriver(),
                 "firefox" => new DriverFactory().GetFirefoxDriver(),
