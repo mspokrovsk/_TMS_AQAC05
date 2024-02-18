@@ -75,8 +75,48 @@ public class FirstTest : BaseTest
     public void Laminate()
     {
         Driver.Navigate().GoToUrl("https://home-ex.ru/calculation/");
-        Thread.Sleep(5000);
+
+        IWebElement lengthInput = Driver.FindElement(By.Id("ln_room_id"));
+        lengthInput.Clear();
+        lengthInput.SendKeys("400");
+
+        IWebElement widthInput = Driver.FindElement(By.Id("wd_room_id"));
+        widthInput.Clear();
+        widthInput.SendKeys("300");
+
+        IWebElement plankLengthInput = Driver.FindElement(By.Id("ln_lam_id"));
+        plankLengthInput.Clear();
+        plankLengthInput.SendKeys("1200");
+
+        IWebElement plankWidthInput = Driver.FindElement(By.Id("wd_lam_id"));
+        plankWidthInput.Clear();
+        plankWidthInput.SendKeys("190");
+
+        IWebElement plankCountInput = Driver.FindElement(By.Id("n_packing"));
+        plankCountInput.Clear();
+        plankCountInput.SendKeys("16");
+
+        IWebElement marginInput = Driver.FindElement(By.Id("area"));
+        marginInput.SendKeys("8");
+
+        IWebElement directionRadio = Driver.FindElement(By.Id("direction-laminate-id1"));
+        directionRadio.Click();
         
-        Console.WriteLine(Driver.FindElement(By.ClassName("calc-result")).Text);
+        IWebElement methodSelect = Driver.FindElement(By.Id("laying_method_laminate"));
+        SelectElement methodDropdown = new SelectElement(methodSelect);
+        methodDropdown.SelectByText("с использованием отрезанного элемента");
+        Thread.Sleep(2000);
+        // Нажатие кнопки "Рассчитать"
+        IWebElement calculateButton = Driver.FindElement(By.Id("btn_calculate"));
+        calculateButton.Click();
+        Thread.Sleep(2000);
+        // Проверка рассчитанных результатов
+       //Console.WriteLine(Driver.FindElement(By.ClassName("calc-result")).Text);
+
+        IWebElement calcResult1 = Driver.FindElement(By.XPath("//*[contains(text(),'Требуемое количество плашек ламината: ')]//descendant::span"));
+        Assert.That(calcResult1.Text, Is.EqualTo("53"));
+
+        IWebElement calcResult2 = Driver.FindElement(By.XPath("//*[contains(text(),'Количество упаковок ламината: ')]//descendant::span"));
+        Assert.That(calcResult2.Text, Is.EqualTo("4"));
     }
 }
