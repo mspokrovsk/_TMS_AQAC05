@@ -7,7 +7,8 @@ public class CssSelectorTest : BaseTest
     [Test]
     public void CssSelectorsTest()
     {
-        Driver.Navigate().GoToUrl("file:/Users/aleksandr.trostyanko/Documents/Work/TeachMeSkills/Code/CSharp/AQA_MTS/Locators/Resources/index.html");
+        Driver.Navigate().GoToUrl("C:\\Users\\DevilMargo\\source\\repos\\_TMS_AQAC05\\Locators\\Resources\\index.html");
+        Thread.Sleep(5000);
         
         // Поиск по id
         Assert.That(Driver.FindElement(By.CssSelector("#my-Address")).Displayed);
