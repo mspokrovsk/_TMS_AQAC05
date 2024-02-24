@@ -10,7 +10,7 @@ namespace SauceDemo.Tests
         public void SearchingForAnElementByLocators()
         {
             Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
-
+            Thread.Sleep(3000);
             // id
             Driver.FindElement(By.Id("user-name")).SendKeys(Configurator.AppSettings.Username);
             Thread.Sleep(3000);
@@ -60,46 +60,43 @@ namespace SauceDemo.Tests
 
             // 10. поиск элемента с условием AND
             Assert.That(Driver.FindElement(By.XPath("//button[@data-test='add-to-cart-test.allthethings()-t-shirt-(red)' and @name='add-to-cart-test.allthethings()-t-shirt-(red)']")).Displayed);
-/*
+
             // css
             // 1. .class
-            Assert.That(Driver.FindElement(By.CssSelector(".className")).Displayed);
+            Assert.That(Driver.FindElement(By.CssSelector(".inventory_list")).Displayed);
 
             // 2. .class1.class2
-            Assert.That(Driver.FindElement(By.CssSelector(".class1.class2")).Displayed);
+            Assert.That(Driver.FindElement(By.CssSelector(".btn.btn_primary")).Displayed);
 
             // 3. .class1 .class2
-            Assert.That(Driver.FindElement(By.CssSelector(".class1 .class2")).Displayed);
+            Assert.That(Driver.FindElement(By.CssSelector(".inventory_container .inventory_list")).Displayed);
 
             // 4. #id
-            Assert.That(Driver.FindElement(By.CssSelector("#elementId")).Displayed);
+            Assert.That(Driver.FindElement(By.CssSelector("#item_5_img_link")).Displayed);
 
             // 5. tagname
-            Assert.That(Driver.FindElement(By.CssSelector("tagName")).Displayed);
+            Assert.That(Driver.FindElement(By.CssSelector("img")).Displayed);
 
             // 6. tagname.class
-            Assert.That(Driver.FindElement(By.CssSelector("tagName.className")).Displayed);
+            Assert.That(Driver.FindElement(By.CssSelector("img.inventory_item_img")).Displayed);
 
             // 7. [attribute=value]
-            Assert.That(Driver.FindElement(By.CssSelector("[attribute=value]")).Displayed);
+            Assert.That(Driver.FindElement(By.CssSelector("[name=add-to-cart-sauce-labs-fleece-jacket]")).Displayed);
 
             // 8. [attribute~=value]
-            Assert.That(Driver.FindElement(By.CssSelector("[attribute~=value]")).Displayed);
+            Assert.That(Driver.FindElement(By.CssSelector("[alt~=Fleece]")).Displayed);
 
             // 9. [attribute|=value]
-            Assert.That(Driver.FindElement(By.CssSelector("[attribute|=value]")).Displayed);
+            Assert.That(Driver.FindElement(By.CssSelector("[data-test|=add-to-cart-sauce-labs-fleece-jacket]")).Displayed);
 
             // 10. [attribute^=value]
-            Assert.That(Driver.FindElement(By.CssSelector("[attribute^=value]")).Displayed);
+            Assert.That(Driver.FindElement(By.CssSelector("[data-test^=add]")).Displayed);
 
             // 11. [attribute$=value]
-            Assert.That(Driver.FindElement(By.CssSelector("[attribute$=value]")).Displayed);
+            Assert.That(Driver.FindElement(By.CssSelector("[data-test$=jacket]")).Displayed);
 
             // 12. [attribute*=value]
-            Assert.That(Driver.FindElement(By.CssSelector("[attribute*=value]")).Displayed);
-*/
-
-
+            Assert.That(Driver.FindElement(By.CssSelector("[data-test*=labs]")).Displayed);
         }
     }
 }
