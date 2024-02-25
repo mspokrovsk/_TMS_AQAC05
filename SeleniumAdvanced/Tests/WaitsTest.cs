@@ -6,14 +6,14 @@ namespace SeleniumBasic.Tests;
 public class WaitsTest : BaseTest
 {
     [Test]
-    public void PresenceOfElementTest()
+    public void PresenceOfElementTest()//тест с неявным ожиданием
     {
         Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/dynamic_loading/1");
 
         IWebElement button = Driver.FindElement(By.TagName("button"));
         button.Click();
         
-        Assert.That(!button.Displayed);
+        Assert.That(!button.Displayed);//проверка что элемент кнопка стал невидимым
 
         IWebElement loading = Driver.FindElement(By.Id("loading"));
         Assert.That(loading.Displayed);
@@ -24,9 +24,9 @@ public class WaitsTest : BaseTest
     }
 
     [Test]
-    public void PresenceOfElementTest1()
+    public void PresenceOfElementTest1()//тест с явными ожиданиями
     {
-        WaitsHelper waitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(30));
+        WaitsHelper waitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(30));//инстанцируем класс из Helpers
         
         Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/dynamic_loading/1");
 

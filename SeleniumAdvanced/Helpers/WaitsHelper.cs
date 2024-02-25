@@ -11,7 +11,7 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
 
     public IWebElement WaitForVisibilityLocatedBy(By locator)
     {
-        return _wait.Until(ExpectedConditions.ElementIsVisible(locator));
+        return _wait.Until(ExpectedConditions.ElementIsVisible(locator));//ждем пока элемент станет видимым
     }
 
     public ReadOnlyCollection<IWebElement> WaitForAllVisibleElementsLocatedBy(By locator)
@@ -21,15 +21,15 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
 
     public IWebElement WaitForExists(By locator)
     {
-        return _wait.Until(ExpectedConditions.ElementExists(locator));
+        return _wait.Until(ExpectedConditions.ElementExists(locator));//ждем пока элемент будет в DOM
     }
 
-    public bool WaitForElementInvisible(By locator)
+    public bool WaitForElementInvisible(By locator)//пока элемент станет невидимым
     {
         return _wait.Until(ExpectedConditions.InvisibilityOfElementLocated(locator));
     }
 
-    public bool WaitForElementInvisible(IWebElement webElement)
+    public bool WaitForElementInvisible(IWebElement webElement)//создаем свой метод ожидания
     {
         try
         {
@@ -52,7 +52,7 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
         }
     }
     
-    public bool WaitForVisibility(IWebElement element)
+    public bool WaitForVisibility(IWebElement element)//свой метод элегантное решение выше
     {
         return _wait.Until(_ => element.Displayed);
     }
@@ -62,10 +62,10 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
         // Инициализация и параметризация FluentWait
         WebDriverWait fluentWait = new WebDriverWait(driver, TimeSpan.FromSeconds(12))
         {
-            PollingInterval = TimeSpan.FromMilliseconds(50)
+            PollingInterval = TimeSpan.FromMilliseconds(50)//через сколько проверять условия
         };
         
-        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));//игнор эксепшенов
         
         // Использование
         return fluentWait.Until(_ => driver.FindElement(locator));
