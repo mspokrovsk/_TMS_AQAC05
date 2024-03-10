@@ -60,7 +60,7 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
     public IWebElement FluentWaitForElement(By locator)
     {
         // Инициализация и параметризация FluentWait
-        WebDriverWait fluentWait = new WebDriverWait(driver, TimeSpan.FromSeconds(12))
+        WebDriverWait fluentWait = new WebDriverWait(driver, TimeSpan.FromSeconds(15))
         {
             PollingInterval = TimeSpan.FromMilliseconds(50)
         };

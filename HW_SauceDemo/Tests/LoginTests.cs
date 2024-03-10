@@ -1,12 +1,5 @@
-﻿using OpenQA.Selenium;
-using HW_SauceDemo.Pages;
+﻿using HW_SauceDemo.Pages;
 using HW_SauceDemo.Helpers.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HW_SauceDemo.Tests;
 
 namespace HW_SauceDemo.Tests;
 

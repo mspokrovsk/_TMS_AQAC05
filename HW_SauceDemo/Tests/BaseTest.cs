@@ -1,6 +1,5 @@
 using OpenQA.Selenium;
 using HW_SauceDemo.Core;
-using HW_SauceDemo.Helpers;
 using HW_SauceDemo.Helpers.Configuration;
 
 namespace HW_SauceDemo.Tests;
