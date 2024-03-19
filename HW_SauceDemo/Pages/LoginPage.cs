@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 
 namespace HW_SauceDemo.Pages
 {
@@ -25,6 +26,7 @@ namespace HW_SauceDemo.Pages
         public IWebElement TextError => WaitsHelper.WaitForExists(textError);
 
         // Комплексные
+        [AllureStep("Login")]
         public ProductsPage SuccessfulLogin(string username, string password)
         {
             UsernameField.SendKeys(username);
@@ -49,5 +51,7 @@ namespace HW_SauceDemo.Pages
         {
             return LoginButton.Displayed && UsernameField.Displayed;
         }
+
+        public string GetErrorLabelText() => TextError.Text.Trim();
     }
 }

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 
 namespace HW_SauceDemo.Pages
 {
@@ -34,9 +35,11 @@ namespace HW_SauceDemo.Pages
         {
             return END_POINT;
         }
-
+        
         public void ClickContinueShoppingButton() => ContinueShoppingButton.Click();
+        [AllureStep("Удаление товара из корзины")]
         public void ClickRemoveButton() => RemoveButton.Click();
+        [AllureStep("Переход на страницу оформления товара")]
         public CheckoutPage ClickCheckoutButton()
         {
             CheckoutButton.Click();

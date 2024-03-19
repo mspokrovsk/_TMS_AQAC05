@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 
 namespace HW_SauceDemo.Pages
 {
@@ -33,7 +34,7 @@ namespace HW_SauceDemo.Pages
         {
             return END_POINT;
         }
-
+        [AllureStep("Заполнение персональных данных")]
         public CheckoutPageTwo FillOutPersonalInfo(string firstName, string lastName, string postalCode)
         {
             FirstNameField.SendKeys(firstName);

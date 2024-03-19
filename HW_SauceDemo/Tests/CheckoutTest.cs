@@ -1,11 +1,20 @@
 ﻿using HW_SauceDemo.Pages;
 using HW_SauceDemo.Helpers.Configuration;
 using HW_SauceDemo.Tests;
+using Allure.Net.Commons;
+using NUnit.Allure.Attributes;
 
+namespace HW_SauceDemo.Tests;
+
+[AllureEpic("Web Interface")]
+[AllureFeature("Login feature", "AddToCart feature", "Checkout feature")]
 
 public class CheckoutTest : BaseTest
 {
     [Test(Description = "Проверка отображения текста Checkout: Complete! на странице после нажатия кнопки Finish")]
+    [AllureSeverity(SeverityLevel.normal)]
+    [AllureOwner("mspokrovsk")]
+    [AllureStory("Story6")]
     public void CompleteCheckoutProcess()
     {
         LoginPage loginPage = new LoginPage(Driver);

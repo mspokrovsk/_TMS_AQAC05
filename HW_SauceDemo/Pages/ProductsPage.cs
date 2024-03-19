@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 
 namespace HW_SauceDemo.Pages
 {
@@ -35,9 +36,9 @@ namespace HW_SauceDemo.Pages
         {
             return END_POINT;
         }
-
+        [AllureStep("Добавление товара в корзину")]
         public void ClickAddToCartBackBackButton() => AddToCartButton.Click();
-
+        [AllureStep("Переход на страницу корзины")]
         public CartPage ClickShoppingCartLink()
         {
             CartBadge.Click();

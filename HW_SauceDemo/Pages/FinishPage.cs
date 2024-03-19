@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 
 namespace HW_SauceDemo.Pages
 {
@@ -28,7 +29,7 @@ namespace HW_SauceDemo.Pages
             BackHomeButton.Click();
             return new ProductsPage(Driver, true);
         }
-
+        [AllureStep("Checkout: Complete!")]
         public override bool IsPageOpened()
         {
             return CheckoutComplete.Text.Trim().Equals("Checkout: Complete!");

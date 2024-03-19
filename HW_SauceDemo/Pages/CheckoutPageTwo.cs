@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 
 namespace HW_SauceDemo.Pages
 {
@@ -31,7 +32,7 @@ namespace HW_SauceDemo.Pages
         {
             return END_POINT;
         }
-
+        [AllureStep("Переход на страницу завершения")]
         public FinishPage ClickFinishButton()
         {
             FinishButton.Click();

@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using HW_SauceDemo.Helpers;
 using HW_SauceDemo.Helpers.Configuration;
+using NUnit.Allure.Attributes;
 
 namespace HW_SauceDemo.Pages
 {
@@ -25,6 +26,7 @@ namespace HW_SauceDemo.Pages
 
         protected abstract string GetEndpoint();
         public abstract bool IsPageOpened();
+        [AllureStep("Открыта страница")]
         protected void OpenPageByURL()
         {
             Driver.Navigate().GoToUrl(Configurator.AppSettings.URL + GetEndpoint());
