@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace Wrappers.Tests
 {
-    public class WrappersTest : BaseTest
+    public class DropDownMenuTest : BaseTest
     {
         [Test]
         public void DropDownTest()
