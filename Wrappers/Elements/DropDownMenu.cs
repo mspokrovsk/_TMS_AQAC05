@@ -1,64 +1,86 @@
 using OpenQA.Selenium;
+using Wrappers.Helpers;
+using Wrappers.Helpers.Configuration;
+using System;
+using System.Collections.Generic;
 
-namespace Wrappers.Elements 
+namespace Wrappers.Elements
 {
-    public class DropDownMenu 
+    public class DropDownMenu
     {
-        private UIElement _triggerElement; 
-        private List<UIElement> _uiElements; 
-        private List<string> _texts; 
+        private UIElement _mainElement;
+        private List<UIElement> _uiElements;
+        private List<string> _texts;
 
-        public DropDownMenu(IWebDriver driver, By by) // Конструктор класса DropDownMenu
+        public DropDownMenu(IWebDriver driver, By by)
         {
-            _triggerElement = new UIElement(driver, by); // Инициализация основного элемента
-            _uiElements = new List<UIElement>(); // Инициализация списка элементов
-            _texts = new List<string>(); // Инициализация списка текстовых значений
+            _mainElement = new UIElement(driver, by);
+            _uiElements = new List<UIElement>();
+            _texts = new List<string>();
+
+            ToggleDropDown();
+            PopulateElements();
+            ToggleDropDown();
         }
 
-        private void OpenDropDownMenu() // Метод открытия выпадающего меню
+        public void SelectOptionByText(string text)
         {
-            _triggerElement.Click(); 
-        }
-
-        private void PopulateMenuItems() // Метод заполнения списка элементов выпадающего меню
-        {
-            foreach (var webElement in _triggerElement.FindUIElements(By.XPath("descendant::li"))) // Цикл по всем элементам списка
+            ToggleDropDown();
+            try
             {
-                _uiElements.Add(webElement); // Добавление элемента в список
-                _texts.Add(webElement.Text.Trim()); // Добавление текстового значения в список
+                _uiElements[_texts.IndexOf(text)].Click();
+            }
+            catch (Exception e)
+            {
+                throw new AssertionException("Element not found for the searched text: \" + text");
             }
         }
 
-        private void CloseDropDownMenu() // Метод закрытия выпадающего меню
+        public void SelectOptionByIndex(int index)
         {
-            _triggerElement.Click(); 
-        }
-
-        public void SelectByText(string text) // Метод выбора по тексту
-        {
-            var index = _texts.IndexOf(text);
-            if (index != -1)
+            ToggleDropDown();
+            try
             {
                 _uiElements[index].Click();
             }
-            else
+            catch (Exception e)
             {
-                throw new AssertionException("Элемент с указанным текстом не найден");
+                throw new AssertionException("Element not found for the searched index: \" + index");
             }
         }
 
-        public void SelectByIndex(int index) // Метод выбора по индексу
+        public bool IsDisplayed => _mainElement.Displayed;
+
+        private void ToggleDropDown()
         {
-            if (index < _uiElements.Count)
+           Thread.Sleep(2000);
+           _mainElement.Click();
+        }
+
+        private void PopulateElements()
+        {
+            foreach (var webElement in _mainElement.FindUIElements(By.XPath("descendant::li")))
             {
-                _uiElements[index].Click();
-            }
-            else
-            {
-                throw new AssertionException("Превышен индекс");
+                _uiElements.Add(webElement);
+                _texts.Add(webElement.Text.Trim());
             }
         }
 
-        public bool Displayed => _triggerElement.Displayed; // Свойство, указывающее, отображается ли основной элемент
+        public string GetSelectedOptionText()
+        {
+            return _uiElements.Find(element => element.Selected).Text.Trim();
+        }
+
+        public int GetSelectedOptionIndex()
+        {
+            for (int i = 0; i < _uiElements.Count; i++)
+            {
+                if (_uiElements[i].Selected)
+                {
+                    return i;
+                }
+            }
+            return -1; // Возвращаем -1, если ни один элемент не выбран
+        }
     }
 }

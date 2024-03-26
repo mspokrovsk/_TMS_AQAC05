@@ -77,7 +77,7 @@ public class UIElement : IWebElement // Îáúÿâëåíèå êëàññà UIElem
     {
         try
         {
-            _webElement.Click();
+             _webElement.Click();
         }
         catch (ElementNotInteractableException)
         {
