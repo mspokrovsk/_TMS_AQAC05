@@ -35,9 +35,11 @@ namespace Wrappers.Tests
 
             AddProjectPage addProjectPage = new AddProjectPage(Driver);
 
+            addProjectPage.Checkbox.SetCheckbox();
+
             addProjectPage.Checkbox.RemoveCheckbox();
 
-            Assert.That(addProjectPage.Checkbox.IsSelected);
+            Assert.That(addProjectPage.Checkbox.IsSelected());
 
         }
     }

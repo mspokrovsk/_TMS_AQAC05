@@ -28,6 +28,7 @@ public class Checkbox
 
     public void RemoveCheckbox()
     {
+        SetCheckbox();
         ToggleCheckbox(false); // Вызываем метод ToggleCheckbox с флагом false для снятия чекбокса
     }
 
