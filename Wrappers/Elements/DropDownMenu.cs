@@ -13,6 +13,7 @@ namespace Wrappers.Elements
         private List<string> _texts;
 
         public DropDownMenu(IWebDriver driver, By by)
+
         {
             _mainElement = new UIElement(driver, by);
             _uiElements = new List<UIElement>();
@@ -32,7 +33,7 @@ namespace Wrappers.Elements
             }
             catch (Exception e)
             {
-                throw new AssertionException("Element not found for the searched text: \" + text");
+                throw new AssertionException("Element not found for the searched text: " + text);
             }
         }
 
@@ -45,7 +46,7 @@ namespace Wrappers.Elements
             }
             catch (Exception e)
             {
-                throw new AssertionException("Element not found for the searched index: \" + index");
+                throw new AssertionException("Element not found for the searched index: " + index);
             }
         }
 
@@ -53,7 +54,7 @@ namespace Wrappers.Elements
 
         private void ToggleDropDown()
         {
-           Thread.Sleep(2000);
+           //Thread.Sleep(2000);
            _mainElement.Click();
         }
 
@@ -66,21 +67,5 @@ namespace Wrappers.Elements
             }
         }
 
-        public string GetSelectedOptionText()
-        {
-            return _uiElements.Find(element => element.Selected).Text.Trim();
-        }
-
-        public int GetSelectedOptionIndex()
-        {
-            for (int i = 0; i < _uiElements.Count; i++)
-            {
-                if (_uiElements[i].Selected)
-                {
-                    return i;
-                }
-            }
-            return -1; // Возвращаем -1, если ни один элемент не выбран
-        }
     }
 }

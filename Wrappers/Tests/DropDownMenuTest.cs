@@ -21,8 +21,8 @@ namespace Wrappers.Tests
 
             Assert.Multiple(() =>
             {
-                Assert.That(addTestCasePage.SectionDropDown.GetSelectedOptionIndex(), Is.EqualTo(0), "Selected index does not match");
-                Assert.That(addTestCasePage.TemplateDropDown.GetSelectedOptionText(), Is.EqualTo("Exploratory Session"), "Selected text does not match");
+                Assert.That(addTestCasePage.SectionDropDownText.Text.Trim(), Is.EqualTo("Test Cases"), "Selected text does not match");
+                Assert.That(addTestCasePage.TemplateDropDownText.Text.Trim(), Is.EqualTo("Exploratory Session"), "Selected text does not match");
             });
         }
 

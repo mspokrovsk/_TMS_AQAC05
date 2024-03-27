@@ -10,6 +10,10 @@ namespace Wrappers.Pages.ProjectPages
         private static readonly By PageTitleBy = By.ClassName("page_title");
         private static readonly By SectionDropDownBy = By.Id("section_id_chzn");
         private static readonly By TemplateDropDownBy = By.Id("template_id_chzn");
+        private static readonly By TemplateDropDownTextBy = By.XPath("//*[@id='template_id_chzn']/a");
+        public UIElement TemplateDropDownText => new(Driver, TemplateDropDownTextBy);
+        private static readonly By SectionDropDownTextBy = By.XPath("//*[@id='section_id_chzn']/a");
+        public UIElement SectionDropDownText => new(Driver, SectionDropDownTextBy);
 
 
         public AddTestCasePage(IWebDriver driver) : base(driver) { }
