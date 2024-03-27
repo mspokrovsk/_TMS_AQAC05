@@ -28,14 +28,13 @@ public class Checkbox
 
     public void RemoveCheckbox()
     {
+        SetCheckbox();
         ToggleCheckbox(false); // Вызываем метод ToggleCheckbox с флагом false для снятия чекбокса
     }
 
     public void ToggleCheckbox(bool flag) //Метод для переключения состояния чекбокса в зависимости от переданного флага
     {
-        string afterAttributeValue = _uiElement.GetAttribute("::after"); //Получаем значение атрибута "::after" у элемента
-
-        if (string.IsNullOrEmpty(afterAttributeValue) == flag) //Проверяем, что значение атрибута "::after" пустое или равно переданному флагу
+        if (IsSelected() == flag) 
         {
             _uiElement.Click();
         }
@@ -43,4 +42,11 @@ public class Checkbox
 
     public bool Displayed => _uiElement.Displayed;
     public bool Enabled => _uiElement.Enabled;
+
+    public bool IsSelected ()
+    {
+        string afterAttributeValue = _uiElement.GetAttribute("::after");
+        return string.IsNullOrEmpty(afterAttributeValue); //вернет true если значение пустое
+
+    }
 }

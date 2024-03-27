@@ -7,47 +7,47 @@ using Wrappers.Helpers.Configuration;
 
 namespace Wrappers.Elements;
 
-public class UIElement : IWebElement // Объявление класса UIElement, реализующего интерфейс IWebElement
+public class UIElement : IWebElement 
 {
-    //задаем переменные
-    private IWebDriver _webDriver; // Поле для хранения экземпляра веб-драйвера
-    private WaitsHelper _waitsHelper; // Поле для хранения экземпляра вспомогательного класса ожиданий
-    private IWebElement _webElement; // Поле для хранения веб-элемента
-    private Actions _actions; // Поле для хранения действий с веб-элементами
+    
+    private IWebDriver _webDriver; // Р”Р»СЏ С…СЂР°РЅРµРЅРёСЏ СЌРєР·РµРјРїР»СЏСЂР° РІРµР±-РґСЂР°Р№РІРµСЂР°
+    private WaitsHelper _waitsHelper; // Р”Р»СЏ СЂР°Р±РѕС‚С‹ СЃ РѕР¶РёРґР°РЅРёСЏРјРё Р·Р°РіСЂСѓР·РєРё
+    private IWebElement _webElement; // Р”Р»СЏ С…СЂР°РЅРµРЅРёСЏ РІРµР±-СЌР»РµРјРµРЅС‚Р°
+    private Actions _actions; // Р”Р»СЏ СЂР°Р±РѕС‚С‹ СЃ РґРµР№СЃС‚РІРёСЏРјРё СЃ РІРµР±-СЌР»РµРјРµРЅС‚Р°РјРё
 
-    private UIElement(IWebDriver webDriver) // Приватный конструктор с параметром webDriver
+    private UIElement(IWebDriver webDriver) // РџСЂРёРІР°С‚РЅС‹Р№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° UIElement, РїСЂРёРЅРёРјР°СЋС‰РёР№ РІРµР±-РґСЂР°Р№РІРµСЂ РІ РєР°С‡РµСЃС‚РІРµ РїР°СЂР°РјРµС‚СЂР°
     {
         _webDriver = webDriver;
         _waitsHelper = new WaitsHelper(webDriver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
         _actions = new Actions(webDriver);
     }
 
-    public UIElement(IWebDriver webDriver, By by) : this(webDriver) // Публичный конструктор с параметрами webDriver и by, вызывает приватный конструктор
+    public UIElement(IWebDriver webDriver, By by) : this(webDriver) //РџСѓР±Р»РёС‡РЅС‹Р№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° UIElement, РїСЂРёРЅРёРјР°СЋС‰РёР№ РІРµР±-РґСЂР°Р№РІРµСЂ Рё Р»РѕРєР°С‚РѕСЂ СЌР»РµРјРµРЅС‚Р° By, РёРЅРёС†РёР°Р»РёР·РёСЂСѓСЋС‰РёР№ РѕР±СЉРµРєС‚ UIElement С‡РµСЂРµР· РІС‹Р·РѕРІ РѕСЃРЅРѕРІРЅРѕРіРѕ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°
     {
         _webElement = _waitsHelper.WaitForExists(by);
     }
 
-    public UIElement(IWebDriver webDriver, IWebElement webElement) : this(webDriver) // Публичный конструктор с параметрами webDriver и webElement, вызывает приватный конструктор
+    public UIElement(IWebDriver webDriver, IWebElement webElement) : this(webDriver) //РџСѓР±Р»РёС‡РЅС‹Р№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° UIElement, РїСЂРёРЅРёРјР°СЋС‰РёР№ РІРµР±-РґСЂР°Р№РІРµСЂ Рё РІРµР±-СЌР»РµРјРµРЅС‚, РёРЅРёС†РёР°Р»РёР·РёСЂСѓСЋС‰РёР№ РѕР±СЉРµРєС‚ UIElement С‡РµСЂРµР· РІС‹Р·РѕРІ РѕСЃРЅРѕРІРЅРѕРіРѕ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°
     {
         _webElement = webElement;
     }
 
-    public IWebElement FindElement(By by) // Метод поиска вложенного элемента по локатору By
+    public IWebElement FindElement(By by) //РњРµС‚РѕРґ РґР»СЏ РїРѕРёСЃРєР° Рё РІРѕР·РІСЂР°С‰РµРЅРёСЏ РѕРґРЅРѕРіРѕ РІРµР±-СЌР»РµРјРµРЅС‚Р° РїРѕ Р»РѕРєР°С‚РѕСЂСѓ By
     {
         return _waitsHelper.WaitChildElement(_webElement, by);
     }
 
-    public UIElement FindUIElement(By by) // Метод поиска вложенного элемента типа UIElement по локатору By
+    public UIElement FindUIElement(By by) //РњРµС‚РѕРґ РґР»СЏ РїРѕРёСЃРєР° Рё РІРѕР·РІСЂР°С‰РµРЅРёСЏ РЅРѕРІРѕРіРѕ РѕР±СЉРµРєС‚Р° UIElement, РёСЃРїРѕР»СЊР·СѓСЏ РјРµС‚РѕРґ FindElement
     {
         return new UIElement(_webDriver, FindElement(by));
     }
 
-    public ReadOnlyCollection<IWebElement> FindElements(By by) // Метод поиска всех вложенных элементов по локатору By
+    public ReadOnlyCollection<IWebElement> FindElements(By by) //РњРµС‚РѕРґ РґР»СЏ РїРѕРёСЃРєР° Рё РІРѕР·РІСЂР°С‰РµРЅРёСЏ РєРѕР»Р»РµРєС†РёРё РІРµР±-СЌР»РµРјРµРЅС‚РѕРІ РїРѕ Р»РѕРєР°С‚РѕСЂСѓ By
     {
         return _webElement.FindElements(by);
     }
 
-    public List<UIElement> FindUIElements(By by) // Метод поиска всех вложенных элементов типа UIElement по локатору By
+    public List<UIElement> FindUIElements(By by) //РњРµС‚РѕРґ РґР»СЏ РїРѕРёСЃРєР° Рё РІРѕР·РІСЂР°С‰РµРЅРёСЏ РєРѕР»Р»РµРєС†РёРё РЅРѕРІС‹С… РѕР±СЉРµРєС‚РѕРІ UIElement, РёСЃРїРѕР»СЊР·СѓСЏ РјРµС‚РѕРґ FindElements
     {
         var result = new List<UIElement>();
         foreach (var webElement in FindElements(by))
@@ -58,26 +58,26 @@ public class UIElement : IWebElement // Объявление класса UIElement, реализующег
         return result;
     }
 
-    public void Clear() // Метод очистки текстового поля элемента
+    public void Clear() //РћС‡РёС‰Р°РµС‚ С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ РІРµР±-СЌР»РµРјРµРЅС‚Р°
     {
         _webElement.Clear();
     }
 
-    public void SendKeys(string text) // Метод ввода текста в текстовое поле элемента
+    public void SendKeys(string text)  //Р’РІРѕРґРёС‚ СѓРєР°Р·Р°РЅРЅС‹Р№ С‚РµРєСЃС‚ РІ С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ РІРµР±-СЌР»РµРјРµРЅС‚Р°
     {
         _webElement.SendKeys(text);
     }
 
-    public void Submit() // Метод отправки формы, если элемент является формой
+    public void Submit() //РћС‚РїСЂР°РІР»СЏРµС‚ С„РѕСЂРјСѓ, РµСЃР»Рё РІРµР±-СЌР»РµРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ СЌР»РµРјРµРЅС‚РѕРј С„РѕСЂРјС‹
     {
         _webElement.Submit();
     }
 
-    public void Click() // Метод клика по элементу, обрабатывает ElementNotInteractableException
+    public void Click() //Р’С‹РїРѕР»РЅСЏРµС‚ РєР»РёРє РїРѕ РІРµР±-СЌР»РµРјРµРЅС‚Сѓ. Р’ СЃР»СѓС‡Р°Рµ, РµСЃР»Рё СЌР»РµРјРµРЅС‚ РЅРµ РґРѕСЃС‚СѓРїРµРЅ РґР»СЏ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ, РёСЃРїРѕР»СЊР·СѓРµС‚ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РјРµС‚РѕРґС‹ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РєР»РёРєР°
     {
         try
         {
-            _webElement.Click();
+             _webElement.Click();
         }
         catch (ElementNotInteractableException)
         {
@@ -97,44 +97,44 @@ public class UIElement : IWebElement // Объявление класса UIElement, реализующег
         }
     }
 
-    public string GetAttribute(string attributeName) // Метод получения значения атрибута элемента
+    public string GetAttribute(string attributeName) //Р’РѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ СѓРєР°Р·Р°РЅРЅРѕРіРѕ Р°С‚СЂРёР±СѓС‚Р° РІРµР±-СЌР»РµРјРµРЅС‚Р°
     {
         return _webElement.GetAttribute(attributeName);
     }
 
-    public string GetDomAttribute(string attributeName) // Метод получения значения DOM-атрибута элемента
+    public string GetDomAttribute(string attributeName) //Р’РѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ СѓРєР°Р·Р°РЅРЅРѕРіРѕ Р°С‚СЂРёР±СѓС‚Р° DOM РІРµР±-СЌР»РµРјРµРЅС‚Р°
     {
         return _webElement.GetDomAttribute(attributeName);
     }
 
-    public string GetDomProperty(string propertyName) // Метод получения значения DOM-свойства элемента
+    public string GetDomProperty(string propertyName) //Р’РѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ СѓРєР°Р·Р°РЅРЅРѕРіРѕ СЃРІРѕР№СЃС‚РІР° DOM РІРµР±-СЌР»РµРјРµРЅС‚Р°
     {
         return _webElement.GetDomProperty(propertyName);
     }
 
-    public string GetCssValue(string propertyName) // Метод получения значения CSS-свойства элемента
+    public string GetCssValue(string propertyName) //Р’РѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ СѓРєР°Р·Р°РЅРЅРѕРіРѕ CSS СЃРІРѕР№СЃС‚РІР° РІРµР±-СЌР»РµРјРµРЅС‚Р°
     {
         return _webElement.GetCssValue(propertyName);
     }
 
-    public ISearchContext GetShadowRoot() // Метод получения теневого корня элемента
+    public ISearchContext GetShadowRoot() //Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕСЂРЅРµРІРѕР№ СЌР»РµРјРµРЅС‚ С‚РµРЅРµРІРѕРіРѕ DOM РІРµР±-СЌР»РµРјРµРЅС‚Р°, РµСЃР»Рё РѕРЅ РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚
     {
         return _webElement.GetShadowRoot();
     }
 
-    public void MoveToElement() // Метод перемещения к элементу на странице
+    public void MoveToElement() //РџСЂРѕРєСЂСѓС‡РёРІР°РµС‚ СЃС‚СЂР°РЅРёС†Сѓ Рє СѓРєР°Р·Р°РЅРЅРѕРјСѓ РІРµР±-СЌР»РµРјРµРЅС‚Сѓ
     {
         ((IJavaScriptExecutor)_webDriver).ExecuteScript("arguments[0].scrollIntoView(true);", _webElement);
     }
 
-    public void Hover() // Метод наведения курсора на элемент
+    public void Hover() //Р’С‹РїРѕР»РЅСЏРµС‚ РЅР°РІРµРґРµРЅРёРµ РєСѓСЂСЃРѕСЂР° РЅР° РІРµР±-СЌР»РµРјРµРЅС‚
     {
         _actions.MoveToElement(_webElement).Build().Perform();
     }
 
-    public string TagName => _webElement.TagName; // Свойство для получения имени тега элемента
+    public string TagName => _webElement.TagName; //Р’РѕР·РІСЂР°С‰Р°РµС‚ РЅР°Р·РІР°РЅРёРµ С‚РµРіР° РІРµР±-СЌР»РµРјРµРЅС‚Р°
 
-    public string Text // Свойство для получения текстового содержимого элемента
+    public string Text //Р’РѕР·РІСЂР°С‰Р°РµС‚ С‚РµРєСЃС‚РѕРІРѕРµ СЃРѕРґРµСЂР¶РёРјРѕРµ РІРµР±-СЌР»РµРјРµРЅС‚Р°. Р›РѕРіРёРєР° РѕРїСЂРµРґРµР»РµРЅРёСЏ С‚РµРєСЃС‚Р° РјРѕР¶РµС‚ Р±С‹С‚СЊ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ РЅР°СЃС‚СЂРѕРµРЅР°
     {
         get
         {
@@ -154,9 +154,9 @@ public class UIElement : IWebElement // Объявление класса UIElement, реализующег
         }
     }
 
-    public bool Enabled => _webElement.Enabled; // Свойство, указывающее, доступен ли элемент для взаимодействия
-    public bool Selected => _webElement.Selected; // Свойство, указывающее, выбран ли элемент
-    public Point Location => _webElement.Location; // Свойство для получения позиции элемента на странице
-    public Size Size => _webElement.Size; // Свойство для получения размеров элемента
-    public bool Displayed => _webElement.Displayed; // Свойство, указывающее, отображается ли элемент на странице
+    public bool Enabled => _webElement.Enabled; //Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РґРѕСЃС‚СѓРїРЅРѕСЃС‚Рё РІРµР±-СЌР»РµРјРµРЅС‚Р° РґР»СЏ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ
+    public bool Selected => _webElement.Selected; //Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РІС‹Р±СЂР°РЅРЅРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё РІРµР±-СЌР»РµРјРµРЅС‚Р°
+    public Point Location => _webElement.Location; //Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РІРµР±-СЌР»РµРјРµРЅС‚Р° РЅР° СЃС‚СЂР°РЅРёС†Рµ
+    public Size Size => _webElement.Size; //Р’РѕР·РІСЂР°С‰Р°РµС‚ СЂР°Р·РјРµСЂС‹ РІРµР±-СЌР»РµРјРµРЅС‚Р°
+    public bool Displayed => _webElement.Displayed; //РџСЂРѕРІРµСЂСЏРµС‚, РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ Р»Рё РІРµР±-СЌР»РµРјРµРЅС‚ РЅР° СЃС‚СЂР°РЅРёС†Рµ
 }
